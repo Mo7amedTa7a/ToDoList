@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/all.css" />
+  <link rel="stylesheet" href="css/root.css" />
+  <link rel="stylesheet" href="css/registerAndLogIn.css" />
+  <title>Register & LogIn</title>
+</head>
+
+<body>
+  <header>
+    <div class="containerHeader">
+      <img src="/Assets/img/logo.png" alt="logo" />
+      <div class="headerRight">
+        <button id="btnHeader" data-i18n="register">register</button>
+        <div class="lang-switch" id="langSwitcher" aria-label="Language" tabindex="0">
+          <button class="current" id="currentLangBtn" type="button">
+            <span class="flag" id="currentFlag"></span>
+          </button>
+          <div class="lang-menu" id="langMenu">
+            <button class="lang-option" data-lang="en" type="button">
+              <span class="flag flag-en"></span>
+            </button>
+            <button class="lang-option" data-lang="ar" type="button">
+              <span class="flag flag-eg"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="sectionForm">
+    <form id="formRL" class="formContainer container">
+      <h2 class="addressForm" data-i18n="login">logIn</h2>
+      <div class="nameLabel active">
+        <input type="text" id="name" name="name" placeholder=" " />
+        <label for="name" data-i18n="name">Name</label>
+      </div>
+      <div class="emailLabel">
+        <input type="email" id="email" placeholder=" " name="email" />
+        <label for="email" data-i18n="email">Email</label>
+      </div>
+      <div class="passLabel">
+        <input type="password" id="password" placeholder=" " name="password" minlength="8" />
+        <label for="password" data-i18n="password">Password</label>
+        <i id="showPass" class="fa-solid fa-eye"></i>
+        <i id="NotshowPass" class="fa-solid fa-eye-slash active"></i>
+      </div>
+      <a href="#" data-i18n="forgotPassword">Forgot your password?</a>
+      <button class="btnForm" data-i18n="login">logIn</button>
+      <p data-i18n="or">Or</p>
+      <div class="socialIcon">
+        <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+        <a href=""><i class="fa-brands fa-google"></i></a>
+      </div>
+    </form>
+  </section>
+  <script src="js/i18n.js"></script>
+  <script>
+    (function(){
+      const switcher = document.getElementById('langSwitcher');
+      const menu = document.getElementById('langMenu');
+      const currentFlag = document.getElementById('currentFlag');
+      const saved = localStorage.getItem('lang') || (navigator.language && navigator.language.startsWith('ar') ? 'ar' : 'en');
+      function setCurrent(lang){
+        currentFlag.className = 'flag ' + (lang === 'ar' ? 'flag-eg' : 'flag-en');
+      }
+      setCurrent(saved);
+      switcher.addEventListener('click', function(e){
+        if (e.target.closest('#currentLangBtn')) {
+          menu.classList.toggle('open');
+        }
+        const opt = e.target.closest('.lang-option');
+        if (opt) {
+          const lang = opt.getAttribute('data-lang');
+          if (window.i18n) window.i18n.setLang(lang);
+          setCurrent(lang);
+          menu.classList.remove('open');
+        }
+      });
+      document.addEventListener('click', function(e){
+        if (!switcher.contains(e.target)) menu.classList.remove('open');
+      });
+    })();
+  </script>
+  <script src="/js/registerAndLogIn.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/all.css" />
+  <link rel="stylesheet" href="css/root.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>To Do List</title>
+</head>
+
+<body>
+  <header>
+    <div class="containerHeaderHome">
+      <a href="index.html"><img src="/Assets/img/logo.png" alt="logo" /></a>
+      <h1 class="welcom-name" data-i18n="welcomeName" data-i18n-name=""></h1>
+      <div class="headerRight">
+
+        <a href="registerAndLogIn.html" id="btnLogInHome" data-i18n="login">LogIn</a>
+        <button id="btnHeaderHome"><i class="fa-solid fa-user"></i></button>
+        <div class="lang-switch" id="langSwitcher" aria-label="Language" tabindex="0">
+          <button class="current" id="currentLangBtn" type="button">
+            <span class="flag" id="currentFlag"></span>
+          </button>
+          <div class="lang-menu" id="langMenu">
+            <button class="lang-option" data-lang="en" type="button">
+              <span class="flag flag-en"></span>
+            </button>
+            <button class="lang-option" data-lang="ar" type="button">
+              <span class="flag flag-eg"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="menuHeader" class="menuHeader active">
+        <ul>
+          <li id="userName"></li>
+          <li id="userEmail"></li>
+        </ul>
+        <button id="btnLognOut" data-i18n="logout">
+          Logn Out <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  <section class="containerSection">
+    <div class="sectionHeader">
+      <div class="sectionHeader2 container">
+        <p data-i18n="addNewToDo">Add New To Do</p>
+        <button id="btnAddHome"><i class="fa-solid fa-plus"></i></button>
+      </div>
+      <div class="layer active">
+        <div class="addNewToDo">
+          <div class="boxHeader">
+            <h2 id="addressBoxEdite" data-i18n="addNewToDo"></h2>
+            <i id="closeBox" class="fa-solid fa-xmark"></i>
+          </div>
+          <form id="formBox">
+            <div class="addressLabel">
+              <input type="text" id="address" name="address" placeholder=" " />
+              <label for="address" data-i18n="address">Address</label>
+            </div>
+            <div class="descriptionLabel">
+              <input type="text" id="description" placeholder=" " name="description" />
+              <label for="description" data-i18n="description">Description</label>
+            </div>
+            <button id="btnBoxAdd" class="btnAddBox" data-i18n="add">Add</button>
+            <button id="btnBoxEdite" class="btnAddBox" data-i18n="edit">Edit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="sectionBody container">
+      <div class="search">
+        <input id="inputSearch" type="text" placeholder="search" data-i18n="search" />
+        <select class="filter" id="filter">
+          <option value="all" data-i18n="all">All</option>
+          <option value="completed" data-i18n="completed">Completed</option>
+          <option value="active" data-i18n="active">No Complete</option>
+        </select>
+      </div>
+
+      <div class="toDoList">
+        <p class="emptyTitle" data-i18n="emptyToDo">Empty To Do</p>
+        <!-- <div class="toDo">
+            <div class="toDoHeader">
+              <h2 class="title">To Do 1</h2>
+              <button><i class="fas fa-ellipsis-v"></i></button>
+            </div>
+            <div class="toDoBody">
+              <p>Lorem, totam rerum dolore quis architecto corpo</p>
+              <button><i class="fa-solid fa-check"></i></button>
+            </div>
+            <div class="btns active">
+              <button class="edit">
+                <span>Edit</span> <i class="fa-solid fa-pencil"></i>
+              </button>
+              <button class="delete">
+                <span>Delete</span><i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </div> -->
+      </div>
+    </div>
+  </section>
+  <!-- Start Footer -->
+  <footer class="footer">
+    <div class="container-footer container">
+      <p>&copy; Dev 2025 MT. All RIGHT RESERVED</p>
+      <div class="social-icons social-icons-footer">
+        <a target="_blank" class="l" href="https://www.linkedin.com/in/mohamed-taha-5398942a5/"><i
+            class="fab fa-linkedin"></i></a>
+        <a target="_blank" class="t" href="https://github.com/Mo7amedTa7a"><i class="fa-brands fa-github"></i></a>
+        <a target="_blank" class="w" href="https://wa.me/201153303915"><i class="fa-brands fa-whatsapp"></i></a>
+        <a target="_blank" class="f" href="https://www.facebook.com/profile.php?id=100084051480065&mibextid=ZbWKwL"><i
+            class="fa-brands fa-facebook"></i></a>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+  <script src="js/i18n.js"></script>
+  <script>
+    (function(){
+      const switcher = document.getElementById('langSwitcher');
+      const menu = document.getElementById('langMenu');
+      const currentFlag = document.getElementById('currentFlag');
+      const saved = localStorage.getItem('lang') || (navigator.language && navigator.language.startsWith('ar') ? 'ar' : 'en');
+      function setCurrent(lang){
+        currentFlag.className = 'flag ' + (lang === 'ar' ? 'flag-eg' : 'flag-en');
+      }
+      setCurrent(saved);
+      switcher.addEventListener('click', function(e){
+        if (e.target.closest('#currentLangBtn')) {
+          menu.classList.toggle('open');
+        }
+        const opt = e.target.closest('.lang-option');
+        if (opt) {
+          const lang = opt.getAttribute('data-lang');
+          if (window.i18n) window.i18n.setLang(lang);
+          setCurrent(lang);
+          menu.classList.remove('open');
+        }
+      });
+      document.addEventListener('click', function(e){
+        if (!switcher.contains(e.target)) menu.classList.remove('open');
+      });
+    })();
+  </script>
+  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

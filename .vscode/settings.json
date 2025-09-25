@@ -1,0 +1,21 @@
+{
+    "launch": {
+        "configurations": [],
+        "compounds": []
+    },
+    "editor.suggest.selectionMode": "always",
+    "editor.quickSuggestions": {
+        "comments": "off",
+        "strings": "off",
+        "other": "off"
+    },
+    "json.schemas": [],
+    "cSpell.words": [
+        "edite",
+        "Edite",
+        "Logn",
+        "Swal",
+        "welcom",
+        "المهمة"
+    ]
+}

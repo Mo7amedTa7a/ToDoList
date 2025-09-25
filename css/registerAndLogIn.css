@@ -1,0 +1,193 @@
+/* Mobile Screen */
+/* Header */
+header {
+  background-color: hsl(var(--text-color-primary));
+  padding: 1.5rem;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  box-shadow: 0rem 0rem 0.8rem hsl(var(--primary-color));
+}
+
+.containerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.containerHeader img {
+  width: 100px;
+}
+
+#btnHeader {
+  background-color: hsl(var(--primary-color));
+  padding: 0.8rem 2rem;
+  font-size: 1.5rem;
+  color: hsl(var(--text-color-primary));
+  border-radius: 0.5rem;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.headerRight select {
+  background-color: transparent;
+  font-size: 1.5rem;
+  color: hsl(var(--primary-color));
+  border: none;
+}
+
+/*( Login & Register ) Box */
+.sectionForm {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  /* box-shadow: .1rem .1rem .8rem hsl(var(--primary-color)); */
+}
+
+.formContainer h2 {
+  font-size: 3rem;
+  color: hsl(var(--primary-color));
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.nameLabel,
+.emailLabel,
+.passLabel {
+  position: relative;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.formContainer label {
+  position: absolute;
+  left: 1.5rem;
+  top: 2rem;
+  font-size: 1.5rem;
+  color: hsl(var(--text-color-secondary));
+  transition: top 0.3s ease;
+}
+
+[lang='ar'] .formContainer input:focus+label,
+[lang='ar'] .formContainer input:not(:placeholder-shown)+label {
+  font-size: 1.2rem;
+}
+.formContainer input:focus+label,
+.formContainer input:not(:placeholder-shown)+label {
+  top: 0rem;
+  font-size: 1.5rem;
+  color: hsl(var(--primary-color));
+}
+
+.nameLabel.active {
+  display: none;
+}
+
+.passLabel i {
+  position: absolute;
+  right: 1rem;
+  top: 2rem;
+  font-size: 1.5rem;
+}
+
+.passLabel .active {
+  display: none;
+}
+
+.passLabel i:hover {
+  cursor: pointer;
+}
+
+.formContainer input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.6rem;
+  border-bottom: 0.2rem solid hsl(var(--primary-color));
+  background-color: hsla(var(--text-color-secondary), 0.1);
+}
+
+.sectionForm a {
+  cursor: pointer;
+  color: hsl(var(--primary-color));
+  font-size: 1.4rem;
+}
+
+.sectionForm a:hover {
+  text-decoration: underline;
+}
+
+.btnForm {
+  background-color: hsl(var(--primary-color));
+  color: hsl(var(--text-color-primary));
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+  font-size: 1.7rem;
+}
+
+#btnHeader:hover,
+.btnForm:hover {
+  cursor: pointer;
+  background-color: hsla(var(--primary-color), 0.9);
+}
+
+.formContainer p {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.socialIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socialIcon a {
+  border: 0.1rem solid hsla(var(--text-color-secondary), 0.1);
+  padding: 0.8rem 1.5rem;
+  font-size: 2.5rem;
+  border-radius: 0.5rem;
+  transition: 0.3s ease-in-out;
+}
+
+.socialIcon a:hover {
+  cursor: pointer;
+  background-color: hsla(var(--text-color-secondary), 0.1);
+}
+
+/* lab Screen */
+@media (min-width: 1024px) {
+  .formContainer {
+    width: 60%;
+  }
+  .containerHeader {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+/* Switch RTL */
+/* Switch lung */
+[dir='rtl'] label {
+  left: auto;
+  right: 2rem;
+}
+
+[dir='rtl'] .passLabel i {
+  right: auto;
+  left: 1rem;
+}

@@ -1,0 +1,125 @@
+@font-face {
+  font-family: "Lato";
+  src: url(../Assets/Lato/Lato-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Arabic";
+  src: url(../Assets/Lato/NotoKufiArabic-Bold.ttf) format("truetype");
+}
+
+/* colors */
+:root {
+  --primary-color: 194, 64%, 52%;
+  --secondary-color: 228, 11%, 9%;
+  --text-color-primary: 0, 0%, 100%;
+  --text-color-secondary: 0, 0%, 27%;
+}
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  scroll-behavior: smooth;
+  border: none;
+  outline: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato";
+}
+
+/* Use Arabic font when the page language is Arabic */
+[lang='ar'] body {
+  font-family: "Arabic";
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Flag language switcher */
+.lang-switch {
+  position: relative;
+}
+
+.lang-switch .current {
+  background: transparent;
+  border: 1px solid hsl(var(--primary-color));
+  border-radius: .5rem;
+  padding: .4rem .8rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  cursor: pointer
+}
+
+.lang-switch .lang-menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: hsl(var(--text-color-primary));
+  border: 1px solid hsl(var(--primary-color));
+  border-radius: .5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+  padding: .4rem;
+  display: none;
+  z-index: 100
+}
+
+.lang-switch .lang-menu.open {
+  display: block
+}
+
+.lang-switch .lang-option {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  background: transparent;
+  border: none;
+  padding: .4rem .6rem;
+  width: 100%;
+  cursor: pointer
+}
+
+.lang-switch .lang-option:hover {
+  background: hsla(var(--secondary-color), .1)
+}
+
+.flag {
+  display: inline-block;
+  width: 24px;
+  height: 16px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 2px;
+}
+
+.flag-en {
+  background-image: url('https://flagcdn.com/gb.svg')
+}
+
+.flag-eg {
+  background-image: url('https://flagcdn.com/eg.svg')
+}
+
+[dir='rtl'] .lang-switch .lang-menu {
+  left: 0;
+  right: auto
+}
+
