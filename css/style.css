@@ -9,27 +9,33 @@ header {
   width: 100%;
   box-shadow: 0rem 0rem 0.8rem hsl(var(--primary-color));
 }
+
 .containerHeaderHome {
-  width: 90%;
+  width: 95%;
   margin: auto;
 }
+
 .containerHeaderHome {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .containerHeaderHome img {
-  width: 100px;
+  width: 90px;
 }
+
 #btnHeaderHome {
   background-color: transparent;
   font-size: 2.5rem;
   color: hsl(var(--primary-color));
 }
+
 #btnHeaderHome:hover {
   cursor: pointer;
   color: hsla(var(--primary-color), 0.8);
 }
+
 #btnLogInHome {
   background-color: hsl(var(--primary-color));
   padding: 0.8rem 2rem;
@@ -37,10 +43,17 @@ header {
   color: hsl(var(--text-color-primary));
   border-radius: 0.5rem;
 }
+
+[dir='rtl'] #btnLogInHome {
+  padding: .5rem 1rem;
+  font-size: 1.2rem;
+}
+
 .welcom-name {
   display: none;
   color: hsl(var(--primary-color));
 }
+
 .menuHeader {
   text-align: center;
   position: absolute;
@@ -52,12 +65,15 @@ header {
   border-radius: 0.6rem;
   font-size: 1.6rem;
 }
+
 .menuHeader.active {
   display: none;
 }
+
 .menuHeader li {
   padding: 0.6rem 0;
 }
+
 .menuHeader button {
   background-color: hsl(var(--primary-color));
   color: hsl(var(--text-color-primary));
@@ -65,10 +81,12 @@ header {
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
 }
+
 .menuHeader button:hover {
   cursor: pointer;
   background-color: hsla(var(--primary-color), 0.8);
 }
+
 .headerRight {
   display: flex;
   align-items: center;
@@ -82,20 +100,32 @@ header {
   color: hsl(var(--primary-color));
   border: none;
 }
+
 @media (min-width: 1024px) {
   .welcom-name {
     display: block;
   }
+
+  .containerHeaderHome {
+    width: 90%;
+  }
+
+  .containerHeaderHome img {
+    width: 100px;
+  }
 }
+
 /* End header */
 .containerSection {
   position: relative;
   padding-top: 7rem;
   /* height: 100vh; */
 }
+
 .sectionHeader {
   background-color: hsl(var(--secondary-color));
 }
+
 .sectionHeader2 {
   display: flex;
   justify-content: space-between;
@@ -103,9 +133,11 @@ header {
   height: 14rem;
   color: hsl(var(--text-color-primary));
 }
+
 .sectionHeader2 p {
   font-size: 1.8rem;
 }
+
 .sectionHeader2 button {
   background-color: hsl(var(--primary-color));
   padding: 0.5rem 1.2rem;
@@ -113,12 +145,14 @@ header {
   font-weight: bold;
   font-size: 1.8rem;
 }
+
 .sectionHeader2 button:hover {
   cursor: pointer;
   background-color: hsla(var(--primary-color), 0.9);
 }
+
 /* Start Box New To Do */
-.addNewToDo{
+.addNewToDo {
   background-color: hsl(var(--text-color-primary));
   position: absolute;
   top: 50%;
@@ -129,76 +163,90 @@ header {
   text-align: center;
   border-radius: .5rem;
 }
-.layer{
+
+.layer {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 99;
   width: 100%;
   height: 100vh;
-  background-color: hsla(var(--secondary-color),.7);
+  background-color: hsla(var(--secondary-color), .7);
 }
-.layer.active{
+
+.layer.active {
   display: none;
 }
-.boxHeader{
+
+.boxHeader {
   display: flex;
   justify-content: space-between;
 }
-.boxHeader i{
+
+.boxHeader i {
   font-size: 1.8rem;
   transition: color .2s ease-in-out;
 }
-.boxHeader i:hover{
+
+.boxHeader i:hover {
   cursor: pointer;
   color: red;
 }
-.addNewToDo h2{
+
+.addNewToDo h2 {
   padding-bottom: 2rem;
   color: hsl(var(--primary-color));
   font-size: 1.8rem;
 }
+
 .addressLabel,
-.descriptionLabel{
+.descriptionLabel {
   position: relative;
   padding: 1rem 0;
   width: 100%;
 }
+
 .addNewToDo label {
-    position: absolute;
-    left: 1.5rem;
-    top: 2rem;
-    font-size: 1.5rem;
-    color: hsl(var(--text-color-secondary));
-    transition: top 0.3s ease;
+  position: absolute;
+  left: 1.5rem;
+  top: 2rem;
+  font-size: 1.5rem;
+  color: hsl(var(--text-color-secondary));
+  transition: top 0.3s ease;
 }
-.addNewToDo input:focus + label,
-.addNewToDo input:not(:placeholder-shown) + label {
-    top: 0rem;
-    font-size: 1.5rem;
-    color: hsl(var(--primary-color));
+
+.addNewToDo input:focus+label,
+.addNewToDo input:not(:placeholder-shown)+label {
+  top: 0rem;
+  font-size: 1.5rem;
+  color: hsl(var(--primary-color));
 }
-.addNewToDo input{
+
+.addNewToDo input {
   width: 100%;
   padding: 1rem;
   font-size: 1.6rem;
   border-bottom: 0.2rem solid hsl(var(--primary-color));
   background-color: hsla(var(--text-color-secondary), 0.1);
 }
-.addNewToDo input:nth-child(2){
+
+.addNewToDo input:nth-child(2) {
   margin: 2rem 0;
 }
-.btnAddBox{
+
+.btnAddBox {
   background-color: hsl(var(--primary-color));
   width: 100%;
   padding: .8rem 0;
   color: hsl(var(--text-color-primary));
   font-size: 1.6rem;
 }
-.btnAddBox:hover{
+
+.btnAddBox:hover {
   cursor: pointer;
-  background-color: hsla(var(--primary-color),.9);
+  background-color: hsla(var(--primary-color), .9);
 }
+
 /* End Box New To Do */
 .sectionBody {
   background-color: hsl(var(--text-color-primary));
@@ -206,9 +254,11 @@ header {
   /* height: calc(100vh - (7rem + 14rem)); */
   border-radius: 0.3rem;
 }
+
 .sectionBody.container {
   width: 90%;
 }
+
 .search {
   border: 1px solid hsla(var(--text-color-secondary), 0.3);
   display: flex;
@@ -217,25 +267,30 @@ header {
   gap: 1rem;
   padding: 1rem;
 }
-.search input{
+
+.search input {
   border: 1px solid hsl(var(--primary-color));
   width: 100%;
   border-radius: 0.5rem;
   padding: .7rem;
 }
+
 .filter {
   font-size: 1.5rem;
   border: 1px solid hsl(var(--primary-color));
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
+
 .filter:hover {
   cursor: pointer;
 }
-.toDoList{
+
+.toDoList {
   padding-bottom: 2rem;
   min-height: 70vh;
 }
+
 .toDo {
   margin-top: 1rem;
   position: relative;
@@ -245,42 +300,51 @@ header {
   min-height: 10rem;
   transition: all .3s ease-in-out;
 }
-.emptyTitle{
+
+.emptyTitle {
   height: 25rem;
   font-size: 4rem;
-  color: hsla(var(--text-color-secondary),.5);
+  color: hsla(var(--text-color-secondary), .5);
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .toDo:hover {
   transform: scale(1.02);
 }
+
 .toDoBody,
 .toDoHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .toDoHeader {
   padding-bottom: 1rem;
 }
+
 .toDoHeader .title {
   font-size: 2rem;
   color: hsl(var(--primary-color));
 }
+
 .toDoBody p {
   font-size: 1.5rem;
   width: 90%;
 }
+
 .toDoHeader button {
   font-size: 1.7rem;
   background-color: transparent;
   transition: all 0.3s ease-in-out;
 }
+
 .toDoHeader button:hover {
   cursor: pointer;
 }
+
 .toDoBody button {
   background-color: hsl(var(--text-color-primary));
   padding: 0.5rem;
@@ -289,14 +353,16 @@ header {
   color: rgb(49, 170, 12);
   font-size: 1.5rem;
 }
+
 .toDoBody button:hover {
   cursor: pointer;
   background-color: hsla(var(--secondary-color), 0.1);
 }
-.toDo .btns{
+
+.toDo .btns {
   display: flex;
   flex-direction: column;
-  box-shadow: 0rem 0rem 0.8rem hsla(var(--secondary-color),.4);
+  box-shadow: 0rem 0rem 0.8rem hsla(var(--secondary-color), .4);
   padding: .5rem;
   position: absolute;
   right: 2.5rem;
@@ -304,50 +370,60 @@ header {
   background-color: hsl(var(--text-color-primary));
   width: 12rem;
 }
-.toDo .btns button{
+
+.toDo .btns button {
   background-color: transparent;
 }
+
 .toDo .edit,
-.toDo .delete{
+.toDo .delete {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
   font-size: 1.6rem;
   transition: all .3s ease-in-out;
 }
-.toDo .edit i{
+
+.toDo .edit i {
   color: hsl(var(--primary-color));
 }
+
 .toDo .delete {
   color: rgb(196, 9, 9);
 }
+
 .toDo .edit:hover,
-.toDo .delete:hover{
+.toDo .delete:hover {
   cursor: pointer;
-  background-color: hsla(var(--secondary-color),.1);
+  background-color: hsla(var(--secondary-color), .1);
 }
-.toDo .delete{
+
+.toDo .delete {
   padding-top: 1rem;
 }
-.btns.active{
+
+.btns.active {
   display: none;
 }
 
 @media (min-width: 1024px) {
-  .addNewToDo{
+  .addNewToDo {
     top: 40%;
     width: 50%;
   }
+
   .sectionBody.container {
-  width: 80%;
+    width: 80%;
+  }
 }
-}
+
 /* Start Footer */
 /* MObile screen */
-footer{
+footer {
 
   background-color: hsl(var(--secondary-color));
 }
+
 .container-footer {
   display: flex;
   flex-wrap: wrap;
@@ -357,23 +433,27 @@ footer{
   text-align: center;
 }
 
-.container-footer > p {
+.container-footer>p {
   font-size: 1.8rem;
   color: hsl(var(--primary-color));
 }
+
 .container-footer .social-icons {
   margin: auto;
   padding: 1rem;
 }
+
 .social-icons-footer .t:hover {
   color: hsl(var(--text-color-primary));
 }
-.social-icons > a {
+
+.social-icons>a {
   font-size: 2.5rem;
   padding: 0.7rem;
   color: hsl(var(--primary-color));
   transition: all 0.3s ease-in-out;
 }
+
 .social-icons .w:hover,
 .social-icons .l:hover,
 .social-icons .f:hover,
@@ -382,12 +462,15 @@ footer{
   text-shadow: 2px 2px 10px hsl(var(--primary-color));
   transform: scale(1.1);
 }
+
 .social-icons .t:hover {
   color: hsl(var(--text-color-primary));
 }
+
 .social-icons .w:hover {
   color: rgb(4, 145, 4);
 }
+
 /* Eng Footer */
 
 /* RTL overrides */
@@ -397,24 +480,30 @@ footer{
 [dir='rtl'] .containerHeaderHome {
   direction: rtl;
 }
+
 [dir='rtl'] .menuHeader {
   left: 2.5rem;
   right: auto;
 }
-[dir='rtl'] .toDo .btns{
+
+[dir='rtl'] .toDo .btns {
   left: 2.5rem;
   right: auto;
 }
-[dir='rtl'] .toDoBody p{
+
+[dir='rtl'] .toDoBody p {
   text-align: right;
 }
-[dir='rtl'] label{
+
+[dir='rtl'] label {
   left: auto;
   right: 1.5rem;
 }
-[dir='rtl'] .addNewToDo input{
+
+[dir='rtl'] .addNewToDo input {
   text-align: right;
 }
-[dir='rtl'] .search input{
+
+[dir='rtl'] .search input {
   text-align: right;
 }
